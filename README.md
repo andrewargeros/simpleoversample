@@ -1,7 +1,7 @@
 # simpleoversample
 A Simple Framework for Oversampling Imbalanced Tibbles
 
-This package currently contains only two functions to oversample imbalanced datasets. It was developed for Brett Devine's QMBE 3740 - Data Mining at Hamline University to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
+This package currently contains only two functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
 
 ## `random_oversample()`
 This function will randomly duplicate minority rows from a tibble with replacement, and append to the original.
