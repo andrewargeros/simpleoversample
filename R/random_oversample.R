@@ -6,7 +6,7 @@
 #'
 #' @keywords random_oversample
 #' @example
-#' iris %>% random_oversample(Species)
+#' penguins %>% random_oversample(species)
 #'
 #' @export
 
