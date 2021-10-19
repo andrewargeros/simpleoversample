@@ -10,7 +10,7 @@
 #'
 #' @export
 
-smote = function(data, var, prop = 1){
+smote <- function(data, var, prop = 1){
   if (sum(is.na(data)) > 0){
     rlang::abort("SMOTE cannot handle NA values. Try using tidyr::drop_na() or tidyr::replace_na()")
   }
