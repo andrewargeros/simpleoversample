@@ -3,22 +3,59 @@ A Simple Framework for Oversampling Imbalanced Tibbles
 
 This package currently contains only two functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
 
-## `random_oversample()`
-This function will randomly duplicate minority rows from a tibble with replacement, and append to the original.
+## Installation
 
-### Example
-On [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+This package is not on CRAN, so it can be installed via:
 
 ```r
-penguins_over = penguins %>% random_oversample(Species)
+devtools::install_github('andrewargeros/simpleoversample')
 ```
 
-## `smote()`
-This function applies the SMOTE synthetic minority oversampling algorithm to balance classes using artificially generated data
+## `random_oversample()`
+This function will randomly duplicate minority rows from a tibble or dataframe with replacement, and append to the original. The proportion of minority:majority observations can be controlled using the `prop` parameter.
 
-### Example
-On [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+
+## `smote()`
+This function applies the SMOTE synthetic minority oversampling algorithm to balance classes using artificially generated data. Note: SMOTE can only handle numeric data, and this function will remove any non-numeric predictor columns.
+
+## Example
+These examples use the  [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset
 
 ```r
-penguins_smote = penguins %>% smote(Species)
+library(tidyverse)
+pens = palmerpenguins::penguins
+pens %>% count(species) # Baseline- Note the imbalance
+
+  #   A tibble: 3 × 2
+  #   species	n
+  #   <fct>	<int>
+  #   Adelie	152
+  #   Chinstrap	68
+  #   Gentoo	12
+
+library(simpleoversample)
+pens %>%
+  drop_na() %>%
+  smote('species') %>%
+  count(species)
+
+  #   A tibble: 3 × 2
+  #   species	n
+  #   <fct>	<int>
+  #   Adelie	146
+  #   Chinstrap	146
+  #   Gentoo	146  
+
+# Using Random Oversampling
+
+pens %>%
+  random_oversample('species') %>%
+  count(species)
+
+  #   A tibble: 3 × 2
+  #   species	n
+  #   <fct>	<int>
+  #   Adelie	152
+  #   Chinstrap	152
+  #   Gentoo	152    
 ```
