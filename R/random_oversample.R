@@ -13,6 +13,7 @@
 random_oversample <- function(data, var, prop = 1){
   needed = data %>%
     dplyr::count(var) %>%
+    dplyr::rename("var" = 1) %>%
     dplyr::mutate(needed = max(n) - n) %>%
     dplyr::filter(needed > 0)
 
@@ -23,7 +24,7 @@ random_oversample <- function(data, var, prop = 1){
       as.numeric()
 
     over_rows = data %>%
-      dplyr::filter(var == i) %>%
+      dplyr::filter(get(var) == i) %>%
       dplyr::sample_n(num_needed*prop, replace = T)
 
     data = data %>% dplyr::bind_rows(over_rows)
