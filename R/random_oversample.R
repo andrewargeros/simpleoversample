@@ -12,7 +12,7 @@
 
 random_oversample <- function(data, var, prop = 1){
   needed = data %>%
-    dplyr::count(var) %>%
+    dplyr::count(get(var)) %>%
     dplyr::rename("var" = 1) %>%
     dplyr::mutate(needed = max(n) - n) %>%
     dplyr::filter(needed > 0)
