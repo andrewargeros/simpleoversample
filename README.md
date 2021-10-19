@@ -1,7 +1,7 @@
 # simpleoversample
-A Simple Framework for Oversampling Imbalanced Tibbles
+*A Simple Framework for Oversampling Imbalanced Tibbles*
 
-This package currently contains only three functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
+This package currently contains only three functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for handling class imbalances without teaching the complexities and nuances of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/).
 
 ## Installation
 
@@ -10,6 +10,8 @@ This package is not on CRAN, so it can be installed via:
 ```r
 devtools::install_github('andrewargeros/simpleoversample')
 ```
+
+Or, by cloning this repo/downloading the release and insalling locally with `devtools::install({PATH})`.
 
 ## `random_oversample()`
 This function will randomly duplicate minority rows from a tibble or dataframe with replacement, and append to the original. The proportion of minority:majority observations can be controlled using the `prop` parameter.
@@ -20,10 +22,10 @@ This function applies the SMOTE synthetic minority oversampling algorithm to bal
 
 ## `adasyn()`
 
-This function is roughly the same as the SMOTE algorithm, but applies a density distribution to generate more realistic data as presented in [He et. al (2008)](https://sci2s.ugr.es/keel/pdf/algorithm/congreso/2008-He-ieee.pdf)
+This function is roughly the same as the SMOTE algorithm, but applies a density distribution to generate more realistic data as presented in [He et. al (2008)](https://sci2s.ugr.es/keel/pdf/algorithm/congreso/2008-He-ieee.pdf).
 
 ## Example
-These examples use the  [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset
+These examples use the  [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset.
 
 ```r
 library(tidyverse)

@@ -1,11 +1,11 @@
 Package: simpleoversample
 Title: A simple way to oversample imbalanced classes in data
-Version: 1.0.0
-Authors@R: 
+Version: 1.0.1
+Authors@R:
     person(given = "Andrew",
            family = "Argeros",
            role = c("aut", "cre"),
-           email = "aargeros@shieldsrx.com",
+           email = "andrew@andrewargeros.com",
            comment = c(ORCID = "0000-0002-9609-8078"))
 Description: Use `simpleoversample` to oversample class imbalanced `tibble` objects.
 License: use_mit_license()
