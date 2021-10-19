@@ -1,7 +1,7 @@
 # simpleoversample
 A Simple Framework for Oversampling Imbalanced Tibbles
 
-This package currently contains only two functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
+This package currently contains only three functions to oversample imbalanced datasets. It was developed for Brett Devine's **QMBE 3740 - Data Mining at Hamline University** to be a simple wrapper for oversampling without teaching the complexities of [Tidymodels](https://www.tidymodels.org/) and the [Tidyverse](https://www.tidyverse.org/)
 
 ## Installation
 
@@ -17,6 +17,10 @@ This function will randomly duplicate minority rows from a tibble or dataframe w
 
 ## `smote()`
 This function applies the SMOTE synthetic minority oversampling algorithm to balance classes using artificially generated data. Note: SMOTE can only handle numeric data, and this function will remove any non-numeric predictor columns.
+
+## `adasyn()`
+
+This function is roughly the same as the SMOTE algorithm, but applies a density distribution to generate more realistic data as presented in [He et. al (2008)](https://sci2s.ugr.es/keel/pdf/algorithm/congreso/2008-He-ieee.pdf)
 
 ## Example
 These examples use the  [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset
