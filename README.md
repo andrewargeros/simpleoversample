@@ -18,7 +18,7 @@ This function will randomly duplicate minority rows from a tibble or dataframe w
 
 
 ## `smote()`
-This function applies the SMOTE synthetic minority oversampling algorithm to balance classes using artificially generated data. Note: SMOTE can only handle numeric data, and this function will remove any non-numeric predictor columns.
+This function applies the SMOTE synthetic minority oversampling algorithm to balance classes using artificially generated data. Note: SMOTE can only handle numeric data, and this function will remove any non-numeric predictor columns, to avoid this, use something like `recipes::step_dummy(all_nominal())` before passing to `smote()`.
 
 ## `adasyn()`
 
